@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     var timer = setInterval(function() {
         if (!isPaused){
-            numOfSeconds;
+            numOfSeconds();
         }
     }, 1000);
   
