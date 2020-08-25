@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let heart = document.querySelector("#heart");
     let pause = document.querySelector("#pause");
     let submit = document.querySelector("#submit");
+    let form = document.querySelector("#comment-form")
     var isPaused = false;
     
     function numOfSeconds() {
@@ -60,7 +61,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
 
-    
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        let userInput = document.querySelector("#comment-input").value; 
+        let p = document.createElement('p');
+        p.innerText = `${userInput}`;
+        document.querySelector("#list").append(p)
+    })
 
 
     
