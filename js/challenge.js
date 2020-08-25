@@ -3,37 +3,62 @@ document.addEventListener("DOMContentLoaded", () => {
     let seconds = parseInt(counter.innerText,10);
     let minus = document.querySelector("#minus");
     let plus = document.querySelector("#plus");
-    let heart = documnet.querySelector("#heart");
+    let heart = document.querySelector("#heart");
+    let pause = document.querySelector("#pause");
+    let submit = document.querySelector("#submit");
+    var isPaused = false;
     
     function numOfSeconds() {
-        counter.innerText = `${seconds+=1}`;
-
-        
+        seconds = seconds + 1;
+        counter.innerText = `${seconds}`;
     };
     
-    const cancel = setInterval(numOfSeconds, 1000);
     
-    minus.addEventListener("click", function(event){
+    var timer = setInterval(function() {
+        if (!isPaused){
+            numOfSeconds;
+        }
+    }, 1000);
+  
+
+    
+    
+    minus.addEventListener("click", function(event) {
         seconds -= 1;
         counter.innerText = `${seconds}`
     });
     
-    plus.addEventListener("click", function(event){
+    plus.addEventListener("click", function(event) {
         seconds += 1;
         counter.innerText = `${seconds}`
-    })
-
+    });
+    
     heart.addEventListener("click", function(event) {
         let existing = document.querySelector("li")
-        
         let likes = document.querySelector(".likes");
-        let liked = 0
         let li = document.createElement('li');
-        li.setAttribute("data-num": `${seconds}`);
-        li.innerHTML = `${seconds} has been liked `
+        li.setAttribute("data-num", `${seconds}`);
+        li.innerHTML = `${seconds} has been liked <span> 1 </span> time `;
+        likes.append(li);
     })
-
-
+    
+    pause.addEventListener("click", function(event) {
+        if (pause.innerText == "pause") {
+            pause.innerText = "resume";
+            minus.disabled = true;
+            plus.disabled = true;
+            heart.disabled = true;
+            submit.disabled = true;
+            isPaused = true;
+        } else if (pause.innerText == "resume") {
+            pause.innerText = "pause";    
+            minus.disabled = false;
+            plus.disabled = false;
+            heart.disabled = false;
+            submit.disabled = false;
+            isPaused = false;
+        }
+    })
 
     
 
