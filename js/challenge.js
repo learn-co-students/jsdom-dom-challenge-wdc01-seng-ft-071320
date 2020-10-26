@@ -4,18 +4,16 @@ let x = parseInt(counter.innerText)
 let isPaused = false
 
 function increaseSec() {
-    // if (!isPaused)
-   { x++
+    x++
     counter.innerText = x
-   }
 }
 
 let btnMin = document.querySelector("button#minus")
+
 btnMin.addEventListener("click", function(event){
     let newValue = parseInt(counter.innerText)
     newValue = newValue - 1
     counter.innerText = newValue
-    console.log("clicked minus")
 })
 
 let btnPlus = document.querySelector("button#plus")
@@ -23,7 +21,6 @@ btnPlus.addEventListener("click", function(event){
     let newValue = parseInt(counter.innerText)
     newValue = newValue + 1
     counter.innerText = newValue
-    console.log("clicked plus")
 })
 
 let btnHeart = document.querySelector("button#heart")
@@ -32,11 +29,9 @@ let incr = 0
 btnHeart.addEventListener("click", heartFunc)
 
 function heartFunc(){
-
     incr = incr + 1
     num = counter.innerText
     let li = document.createElement('li')
-    
     if (ul.innerText.includes(num))
         {
             li.innerText =  `${counter.innerText} - ${incr} likes`
